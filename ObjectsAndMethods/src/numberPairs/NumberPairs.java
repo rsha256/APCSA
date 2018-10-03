@@ -22,6 +22,15 @@ public class NumberPairs {
 		this.num2 = other.num2 + other2.num2;
 		computeSum();
 	}
+	
+	public static NumberPairs twoTogether(NumberPairs n1, NumberPairs n2) {
+		double num1 = n1.num1 + n2.num1;
+		double num2 = n1.num2 + n2.num2;
+		
+		NumberPairs a = new NumberPairs(num1, num2);
+		
+		return a;
+	} 
 
 	// GETTERS
 	public double getNum1() {
@@ -70,7 +79,7 @@ public class NumberPairs {
 		NumberPairs two = new NumberPairs(90, 100.0);
 		
 		
-		// EXTENSION 2
+/*		// EXTENSION 2
 		NumberPairs eleven = new NumberPairs(one, two);
 		System.out.println(eleven);
 		
@@ -87,8 +96,13 @@ public class NumberPairs {
 		
 		// EXTENSION 1
 		one.combine(two);
-		System.out.println(one);
+		System.out.println(one);*/
 
+		NumberPairs ten = new NumberPairs();
+		
+		// Return to the past
+		NumberPairs bob = twoTogether(one, two);
+		System.out.println(bob);
 
 	}
 

@@ -20,14 +20,17 @@ public static double maximum(double a, double b, double c) {
 }
 // 4. This method will return a random integer between 9 and 12 (inclusive) (the Java API may help.)
 public static int getRandomClass() {
+	return (int) Math.random();
 }
 // 5. This method will return the surface area of a sphere with given radius
 // SA = 4PIr²
 public static double sphereSurfaceArea(int radius) {
+	return 4.0 * Math.PI * Math.pow(radius, 2);
 }
 // 6. This method will return the volume of a sphere with given radius
 // V = 4/3PI r^3
 public static double sphereVolume(int radius) {
+	return 4.0/3.0 * Math.PI * Math.pow(radius, 3);
 
 }
 // 7. This method will return the length of the hypotenuse of a right
