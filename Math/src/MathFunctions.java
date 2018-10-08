@@ -12,23 +12,20 @@ public class MathFunctions {
 	// 2. This method returns the maximum value of integers a, and b. (the Java API
 	// may help.)
 	public static int maximum(int a, int b) {
-		if (a > b)
-			return a;
-		return b;
+		return Math.max(a, b);
 	}
 
 	// 3. This method returns the maximum value of double values a,b,c. (the Java
 	// API may help.)
 	public static double maximum(double a, double b, double c) {
-		if (a > b)
-			return a;
-		return b;
+		return Math.max(Math.max(a, b), c);
 	}
 
 	// 4. This method will return a random integer between 9 and 12 (inclusive) (the
 	// Java API may help.)
 	public static int getRandomClass() {
-		return (int) Math.random();
+		
+		return (int) (Math.random() * 4) + 9;
 	}
 
 	// 5. This method will return the surface area of a sphere with given radius
@@ -48,7 +45,7 @@ public class MathFunctions {
 	// triangle
 	// with legs leg1 and leg2
 	public static double hypotenuse(double leg1, double leg2) {
-		return Math.sqrt(Math.pow(leg1, 2) + Math.pow(leg1, 2));
+		return Math.sqrt(Math.pow(leg1, 2) + Math.pow(leg2, 2));
 	}
 
 	// 8. This method will return the length of Segment AB
@@ -61,17 +58,16 @@ public class MathFunctions {
 	// triangle with with base and height leg1 and leg2 (the Java API may help.)
 	public static double getSmallestAngleOfRightTri(double leg1, double leg2) {
 		double hyp = hypotenuse(leg1, leg2);
-		double x1 = (leg1 * 90.0) / hyp;
-		double x2 = (leg2 * 90.0) / hyp;
-		if (x1 > x2)
-			return x2;
-		return x1;
+		double x1 = (Math.asin(leg1 / hyp)) * (180 / Math.PI);
+		double x2 = Math.asin(leg2 / hyp) * (180 / Math.PI);
+
+		return Math.min(x1, x2);
 	}
 
 	// 10. This method will round x to the nearest hundredPlace
 	// roundToHundredPlace(1297) =======&gt; 1300
 	public static int roundToHundredPlace(int x) {
-		return (int) ((int) (x * 100.0 + 0.5) / 100.0);
+		return (int) (x / 100.0 + 0.5) * 100;
 	}
 
 	// 11. This method will round x to the nearest hundredthPlace
