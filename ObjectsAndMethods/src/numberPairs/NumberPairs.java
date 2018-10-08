@@ -27,9 +27,7 @@ public class NumberPairs {
 		double num1 = n1.num1 + n2.num1;
 		double num2 = n1.num2 + n2.num2;
 		
-		NumberPairs a = new NumberPairs(num1, num2);
-		
-		return a;
+		return new NumberPairs(num1, num2);
 	} 
 
 	// GETTERS
@@ -98,11 +96,16 @@ public class NumberPairs {
 		one.combine(two);
 		System.out.println(one);*/
 
-		NumberPairs ten = new NumberPairs();
+		System.out.println();
+		System.out.println(one);
+		System.out.println(two);
 		
-		// Return to the past
-		NumberPairs bob = twoTogether(one, two);
-		System.out.println(bob);
+		NumberPairs three = twoTogether(one, two);
+		
+		System.out.println(three);
+		
+		NumberPairs four = twoTogether(one, three);
+		System.out.println(four);
 
 	}
 

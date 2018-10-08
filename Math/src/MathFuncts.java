@@ -45,7 +45,7 @@ public class MathFuncts {
 	public static String midpoint(int x1, int x2, int y1, int y2) {
 		return ("(" + (x1 + x2) / 2.0 + ", " + (y1 + y2) / 2.0 + ")");
 	}
-
+	
 	public static void main(String[] args) {
 		System.out.println("The average of 3, 4, and 12 is: " + average(3, 4, 12));
 		System.out.println("10 cel is: " + convertTemp(10));
@@ -55,6 +55,16 @@ public class MathFuncts {
 		System.out.println("Random color is: " + randColor());
 		System.out.println("$" + total(4, 7, 5, 2));
 		System.out.println(midpoint(2, 5, 7, 8));
+		
+		MyPoint one = new MyPoint(2, 3);
+		System.out.println(one);
+		MyPoint two = new MyPoint(7, 8);
+		System.out.println(two);
+		
+		MyPoint three = MyPoint.midpoint(one, two);
+		System.out.println(three);
+		
+		System.out.println(MyPoint.midpoint(one, three));
 	}
 
 	// this method converts an inputted Celsius temperature into F
