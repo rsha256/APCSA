@@ -57,9 +57,8 @@ public class MathFunctions {
 	// 9. this method will find the smallest angle (in degrees) of a right
 	// triangle with with base and height leg1 and leg2 (the Java API may help.)
 	public static double getSmallestAngleOfRightTri(double leg1, double leg2) {
-		double hyp = hypotenuse(leg1, leg2);
-		double x1 = (Math.asin(leg1 / hyp)) * (180 / Math.PI);
-		double x2 = Math.asin(leg2 / hyp) * (180 / Math.PI);
+		double x1 = (Math.atan(leg2 / leg1)) * (180 / Math.PI);
+		double x2 = Math.atan(leg1 / leg2) * (180 / Math.PI);
 
 		return Math.min(x1, x2);
 	}
