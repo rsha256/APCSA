@@ -1,6 +1,5 @@
-
 // MathFuncts methods Paired Programming Assignment
-// Use the documentation from JAVA&#39;s Math class to complete the following methods
+// Use the documentation from JAVA's Math class to complete the following methods
 import java.awt.Point;
 
 public class MathFunctions {
@@ -45,11 +44,12 @@ public class MathFunctions {
 	// triangle
 	// with legs leg1 and leg2
 	public static double hypotenuse(double leg1, double leg2) {
-		return Math.sqrt(Math.pow(leg1, 2) + Math.pow(leg2, 2));
+		return Math.hypot(leg1, leg2);
+//		return Math.sqrt(Math.pow(leg1, 2) + Math.pow(leg2, 2));
 	}
 
 	// 8. This method will return the length of Segment AB
-	// Refer to java&#39;s Point class (the Java API may help.)
+	// Refer to java's Point class (the Java API may help.)
 	public static double segmentLength(Point a, Point b) {
 		return a.distance(b);
 	}
@@ -99,10 +99,20 @@ public class MathFunctions {
 
 	}
 	/*
-	 * OUTPUT 1. DISTANCE: 13 2. MAX: 8 3. MAX: -2.0 4. Random HS Class: 11 5.
-	 * Sphere Surface Area: 1017.8760197630929 sq. units 6. Sphere Volume:
-	 * 33.510321638291124 cubic units 7. Hypotenuse: 11.40175425099138 8. Segment
-	 * Length: 5.0 9. Smallest Acute Angle: 35.53767779197438 10. Round To Hundred
-	 * Place: 1300 11. Round To Hundredth Place: 12.98
+	 * OUTPUT 1. DISTANCE: 13 
+	 * 2. MAX: 8 
+	 * 3. MAX: -2.0 
+	 * 4. Random HS Class: 11 
+	 * 5.
+	 * Sphere Surface Area: 1017.8760197630929 sq. units 
+	 * 6. Sphere Volume:
+	 * 33.510321638291124 cubic units 
+	 * 7. Hypotenuse: 11.40175425099138 
+	 * 8. Segment
+	 * Length: 5.0 
+	 * 9. Smallest Acute Angle: 35.53767779197438 
+	 * 10. Round To Hundred
+	 * Place: 1300 
+	 * 11. Round To Hundredth Place: 12.98
 	 */
 }
