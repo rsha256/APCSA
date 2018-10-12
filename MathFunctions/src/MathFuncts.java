@@ -47,13 +47,13 @@ public class MathFuncts {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("The average of 3, 4, and 12 is: " + average(3, 4, 12));
+/*		System.out.println("The average of 3, 4, and 12 is: " + average(3, 4, 12));
 		System.out.println("10 cel is: " + convertTemp(10));
 		System.out.println("Return: " + makeChange(.78) + " quarters");
 		System.out.println(roundToHths(9.236));
 		System.out.println(roundToHds(1297));
 		System.out.println("Random color is: " + randColor());
-		System.out.println("$" + total(4, 7, 5, 2));
+		System.out.println("$" + total(4, 7, 5, 2));*/
 		System.out.println(midpoint(2, 5, 7, 8));
 		
 		MyPoint one = new MyPoint(2, 3);

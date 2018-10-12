@@ -39,6 +39,13 @@ public class MyPoint {
 		return aMyPoint;
 	}
 
+	public MyPoint midpointns(MyPoint other, MyPoint other2) {
+		double x = (other.getxCoord() + other2.getxCoord()) / 2;
+		double y = (other.getyCoord() + other2.getyCoord()) / 2;
+		MyPoint aMyPoint = new MyPoint(x, y);
+		return aMyPoint;
+	}
+	
 	public double getxCoord() {
 		return xCoord;
 	}
