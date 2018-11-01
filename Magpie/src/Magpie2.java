@@ -38,6 +38,15 @@
  * </tr>
  * </table>
  * 
+ * 
+ * Our program prioritizes by which if statement is first  - we can prioritize by putting an if statement on top of another one.
+ * 
+ * What happens when a keyword is included in another word? Consider statements like “I know
+ * all the state capitals” and “I like vegetables smothered in cheese.” Explain the problem with the
+ * responses to these statements.
+ * 
+ * The statements have letters that are used in an if statement so they return statements that do not make sense in the given context.
+ * 
  * */
 
 /**
