@@ -4,7 +4,39 @@
  * <ul><li>
  *    Uses advanced search for keywords 
  * </li></ul> 
- *    
+ *
+ * Write the value of each of the variable psn, before, and after each time the program control reaches the point in the method indicated by the comment.:
+ *
+ * <p>findKeyword("She's my sister", "sister", 0);</p>
+ * <table><tbody>
+ * <tr><td><p>Iteration</p></td> <td><p>psn</p></td> <td><p>before</p></td> <td><p>after</p></td></tr>
+ * <tr><td><p>1</p></td> <td><p>9</p></td> <td><p>" "</p></td> <td><p>" "</p></td></tr>
+ * </tbody></table>
+ *
+ * <p>findKeyword("Brother Tom is helpful", "brother", 0);</p>
+ * <table><tbody>
+ * <tr><td><p>Iteration</p></td> <td><p>psn</p></td> <td><p>before</p></td> <td><p>after</p></td></tr>
+ * <tr><td><p>1</p></td> <td><p>0</p></td> <td><p>" "</p></td> <td><p>" "</p></td></tr>
+ * </tbody></table>
+ *
+ * <p>findKeyword("I can't catch wild cats.", "cat", 0);</p>
+ * <table><tbody>
+ * <tr><td><p>Iteration</p></td> <td><p>psn</p></td> <td><p>before</p></td> <td><p>after</p></td></tr>
+ * <tr><td><p>1</p></td> <td><p>8</p></td> <td><p>" "</p></td> <td><p>"C"</p></td></tr>
+ * <tr><td><p>2</p></td> <td><p>19</p></td> <td><p>" "</p></td> <td><p>"S"</p></td></tr>
+ * <tr><td><p>3</p></td> <td><p>-1</p></td> <td><p></p></td> <td><p></p></td></tr>
+ * </tbody></table>
+ *
+ *
+ * <p>findKeyword("I know nothing about snow plows.", "no", 0);</p>
+ * <table><tbody>
+ * <tr><td><p>Iteration</p></td> <td><p>psn</p></td> <td><p>before</p></td> <td><p>after</p></td></tr>
+ * <tr><td><p>1</p></td> <td><p>3</p></td> <td><p>"k"</p></td> <td><p>"w"</p></td></tr>
+ * <tr><td><p>2</p></td> <td><p>7</p></td> <td><p>" "</p></td> <td><p>"t"</p></td></tr>
+ * <tr><td><p>3</p></td> <td><p>22</p></td> <td><p>"s"</p></td> <td><p>"w"</p></td></tr>
+ * <tr><td><p>4</p></td> <td><p>-1</p></td> <td><p></p></td> <td><p></p></td></tr>
+ * </tbody></table>
+ *
  * @author Laurie White
  * @version April 2012
  */
@@ -33,6 +65,13 @@ public class Magpie3
 		if (statement.length() == 0)
 		{
 			response = "Say something, please.";
+		}
+		else if (findKeyword(statement, "school") >= 0) {
+			response = "Tell me more about your school life.";
+		} else if (findKeyword(statement, "food") >= 0) {
+			response = "I like Food.";
+		} else if (findKeyword(statement, "Java") >= 0) {
+			response = "That sounds like a good programming language to start off with.";
 		}
 		else if (findKeyword(statement, "no") >= 0)
 		{
