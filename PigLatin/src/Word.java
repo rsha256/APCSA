@@ -81,17 +81,34 @@ public class Word {
 	 * 
 	 * @return a string that is a random anagram of the original word
 	 */
-	public String anagram() {
-		Random rdn = new Random();
-		String xString = "";
-		int len = original.length();
+	public void anagram() {
+//		Random rdn = new Random();
+//		String xString = "";
+//		int len = original.length();
+//
+//		for (int i = 0; i < len; i++) {
+//			xString = xString + original.charAt(x);
+//		}
+//		
+//		return xString;
 
-		for (int i = 0; i < len; i++) {
-			int x = rdn.nextInt(len) + 1;
-			xString = xString + original.charAt(x);
-		}
+		char[] a = original.toCharArray();
+		int i = 0;
 		
-		return xString;
+		if (i == a.length-1)  printArray(a);
+		else {
+			for (int j=i; j< a.length; j++) {
+				//swap a[i] with a[j]
+				char c = a[i]; 
+				a[i] = a[j]; 
+				a[j] = c;
+				makeAnagram(a, i+1);
+				//swap back
+				c = a[i]; 
+				a[i] = a[j]; 
+				a[j] = c;
+			}
+		}
 		
 		// String anagram = "";
 		//
@@ -106,6 +123,29 @@ public class Word {
 		//
 		// return anagram;
 
+	}
+	static void makeAnagram(char[] a, int i) {
+		//System.out.println("MakeAnagram i=" + i); //for debug
+		if (i == a.length-1)  printArray(a);
+		else {
+			for (int j=i; j< a.length; j++) {
+				//swap a[i] with a[j]
+				char c = a[i]; 
+				a[i] = a[j]; 
+				a[j] = c;
+				makeAnagram(a, i+1);
+				//swap back
+				c = a[i]; 
+				a[i] = a[j]; 
+				a[j] = c;
+			}
+		}
+	}//end of makeAnagram
+	
+	//print an array
+	static void printArray(char [] a) {
+		for (int i=0; i< a.length; i++) System.out.print(a[i]); 
+		System.out.println();
 	}
 
 }
