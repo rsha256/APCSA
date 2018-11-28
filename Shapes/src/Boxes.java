@@ -6,19 +6,18 @@ public class Boxes extends JFrame {
 
 	public Boxes() {
 		super("Concentric Circles");
-		setSize(600, 600);
+		setSize(800, 800);
 		setVisible(true);
 	}
 
 	public void paint(Graphics g) {
-		final int SIZE = 35;
+		final int SIZE = 40;
 		int count = 0;
 		super.paint(g);
-		g.drawRect(20, 40, SIZE, SIZE);
 		for (int i = 20; i <= 440; i += 20) {
 			count++;
 				g.setColor(Color.black);
-			g.drawRect(i+(i), i+(i), SIZE, SIZE);
+			g.drawRect(i+i, i+i, SIZE, SIZE);
 			try {
 				Thread.currentThread();
 				Thread.sleep(80);

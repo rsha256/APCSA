@@ -12,15 +12,10 @@ public class GrowingCircles extends JFrame {
 
 	public void paint(Graphics g) {
 		int size = 350;
-		int count = 0;
 		super.paint(g);
 		for (int i = 40; i <= 440; i += 20) {
-			count++;
-			if (count % 2 == 0) 
-				g.setColor(Color.black);
-			else
-				g.setColor(Color.white);
-			g.fillOval(40, 40, size, size);
+			g.setColor(Color.black);
+			g.drawOval(40, 40, size, size);
 			size -= 5;
 			try {
 				Thread.currentThread();
