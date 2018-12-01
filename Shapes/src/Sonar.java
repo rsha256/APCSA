@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JFrame;
 
-public class LineArt extends JFrame {
+public class Sonar extends JFrame {
 
 	public static void pause(int milliseconds) {
 		try {
@@ -14,7 +14,7 @@ public class LineArt extends JFrame {
 		}
 	}
 
-	public LineArt() {
+	public Sonar() {
 		super("Line Art");
 		setSize(800, 800);
 		setVisible(true);
