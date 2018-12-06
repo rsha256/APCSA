@@ -1,5 +1,3 @@
-import java.io.FilterInputStream;
-
 public class LoopingFunIntro {
 	public static void main(String[] args) {
 		LoopingFunIntro one = new LoopingFunIntro();
