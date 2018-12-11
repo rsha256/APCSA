@@ -1,3 +1,8 @@
+/*
+ * @author Michael Fridkin
+ * @author Rahul Shah
+ * 
+ */
 public class LoopingFun {
 	/**
 	 * 1 String printFactors(int n)
@@ -267,6 +272,6 @@ public class LoopingFun {
 
 	public static void main(String[] args) {
 		LoopingFun one = new LoopingFun();
-		one.pyramid(2);
+		one.pyramid(7);
 	}
 }
