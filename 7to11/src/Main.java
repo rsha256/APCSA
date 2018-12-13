@@ -3,16 +3,17 @@ import java.util.Scanner;
 public class Main {
 
 	private double cash, bet;
-	private int roll, sum, firstTurn, turn = 0;
+    private int sum, firstTurn;
+    private int turn = 0;
 
-	public Main() {
+	private Main() {
 	}
 
 	public Main(double cash) {
 		this.cash = cash;
 	}
 
-	public void placeBet() {
+	private void placeBet() {
 		System.out.println("How much do you want to bet?");
 		Scanner input = new Scanner(System.in);
 		this.bet = input.nextDouble();
@@ -24,12 +25,11 @@ public class Main {
 			sumRolls();
 	}
 
-	public int rollDie() {
-		roll = (int) (Math.random() * 6) + 1;
-		return roll;
+	private int rollDie() {
+        return (int) (Math.random() * 6) + 1;
 	}
 
-	public void firstTurn() {
+	private void firstTurn() {
 		int a = rollDie();
 		int b = rollDie();
 		firstTurn = a + b;
@@ -37,36 +37,36 @@ public class Main {
 		turn++;
 		if (firstTurn == 7 || firstTurn == 11) {
 			printSum(a, b);
-			youWin(a, b);
+			youWin();
 		} else if (firstTurn == 2 || firstTurn == 3 || firstTurn == 12) {
 			printSum(a, b);
-			youLose(a, b);
+			youLose();
 		} else {
 			System.out.println("Your first sum is " + a + " + " + b + " = " + firstTurn);
 			sumRolls();
 		}
 	}
 
-	public void sumRolls() {
+	private void sumRolls() {
 		int a = rollDie();
 		int b = rollDie();
 		sum = a + b;
 		printSum(a, b);
-		checkSum(a, b);
+		checkSum();
 	}
 
-	public void checkSum(int a, int b) {
+	private void checkSum() {
 		if (turn == 0 && (sum == 7 || sum == 11))
-			youWin(a, b);
+			youWin();
 		else if (sum == firstTurn)
-			youWin(a, b);
+			youWin();
 		else if (turn != 0 && (sum == 7 || sum == 11))
-			youLose(a, b);
+			youLose();
 		else
 			sumRolls();
 	}
 
-	private void youWin(int a, int b) {
+	private void youWin() {
 		System.out.println("You win!");
 		cash += bet;
 		bet = 0;
@@ -75,7 +75,7 @@ public class Main {
 		placeBet();
 	}
 
-	private void youLose(int a, int b) {
+	private void youLose() {
 		System.out.println("You lose!");
 		cash -= bet;
 		bet = 0;
@@ -85,11 +85,11 @@ public class Main {
 
 	}
 
-	public void printSum(int a, int b) {
+	private void printSum(int a, int b) {
 		System.out.println("Your sum is " + a + " + " + b + " = " + sum);
 	}
 
-	public void runGame() {
+	private void runGame() {
 		System.out.println("Welcome to 7/11s\nHow much would you like to start with?");
 		Scanner input = new Scanner(System.in);
 		cash = input.nextDouble();
@@ -97,7 +97,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		Main app = new Main(1000);
+		Main app = new Main();
 		app.runGame();
 	}
 }
