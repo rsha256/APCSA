@@ -90,7 +90,7 @@ public class Main {
 	}
 
 	private void runGame() {
-		System.out.println("Welcome to 7/11s\nHow much would you like to start with?");
+		System.out.println("Enter the number of marbles you want to take: ");
 		Scanner input = new Scanner(System.in);
 		cash = input.nextDouble();
 		placeBet();
