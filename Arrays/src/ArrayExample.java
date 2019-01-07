@@ -21,7 +21,7 @@ public class ArrayExample {
 	// 2. Constructs an array of random numbers (0-24) array of size count
 	public ArrayExample(int count) {
 		for (int i = 0; i < count; i++) {
-			numbArray[i]= (int)(Math.random() * 24) + 1;		
+			numbArray[i] = (int) (Math.random() * 24) + 1;
 		}
 	}
 
@@ -34,25 +34,42 @@ public class ArrayExample {
 
 	// 4. This method prints all of the elements in reverse order
 	public void displayReverse() {
-		 
+		for (int i = numbArray.length - 1; i >= 0; i--) {
+			System.out.println(numbArray[i]);
+		}
+
 	}
 
 	// 5. This method calculates and returns the average of all of the elements
 	// The average of the default array is 14.1
 	public double average() {
+		int tot = 0;
+		for (int i : numbArray) {
+			tot += i;
+		}
+		return tot / numbArray.length;
 	}
 
 	// 6. This method returns the maximum value of all of the elements
 	// The max of the default array is 48.
 	public int findMax() {
-
+		int max = numbArray[0];
+		for (int x : numbArray) {
+			if (max < x)
+				max = x;
+		}
+		return max;
 	}
 
 	// 7. This method returns the index number of the first instance of int lookFor
 	// returns -1 if not in the list
 	// ex. Using the default array findIndex(15) will return 4
 	public int linearSearch(int lookFor) {
-
+		for (int x = 0; x < numbArray.length; x++) {
+			if (lookFor == numbArray[x])
+				return x;
+		}
+		return -1;
 	}
 
 	/**
@@ -60,6 +77,20 @@ public class ArrayExample {
 	 * default constructor will be Number Frequency 1 1 3 2 7 2 15 1 19 3 48 1
 	 */
 	public void tallyList() {
+
+		int unique = 0;
+		for (int i = 0; i < numbArray.length; i++) {
+			for (int j = i + 1; j < numbArray.length; j++)
+				if (numbArray[i] != numbArray[j])
+					unique++;
+
+		}
+		int[] tally = new int[unique];
+
+		int count = 0;
+		for (int x : numbArray) {
+
+		}
 	}
 
 	/**
@@ -84,7 +115,22 @@ public class ArrayExample {
 	// search.
 	// ex. Using the default array findIndex(15) will return 4
 	public int binarySearch(int lookFor) {
-		return Arrays.binarySearch(numbArray, lookFor);
+		// return Arrays.binarySearch(numbArray, lookFor);
+		sort();
+		int middle = numbArray.length / 2;
+		int bottom = numbArray[0];
+		int top = numbArray[numbArray.length - 1];
+		while (bottom <= top) {
+			if (lookFor == numbArray[middle])
+				return middle;
+			else {
+				if (lookFor < middle)
+					top = middle - 1;
+				else
+					bottom = middle + 1;
+			}
+		}
+		return -1;
 	}
 	// 12. Write a tester that will create a random array of size 50
 	// and test all of these methods
