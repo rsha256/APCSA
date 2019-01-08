@@ -123,6 +123,28 @@ public class ArrayExample {
 	public void sort() {
 		Arrays.sort(numbArray);
 		display();
+
+//		boolean needNextPass = true;
+//
+//		for (int k = 1; k < numbArray.length && needNextPass; k++) {
+//			// Array may be sorted and next pass not needed
+//			needNextPass = false;
+//			for (int i = 0; i < numbArray.length - k; i++) {
+//				if (numbArray[i] > numbArray[i + 1]) {
+//					// Swap list[i] with list[i + 1]
+//					int temp = numbArray[i];
+//					numbArray[i] = numbArray[i + 1];
+//					numbArray[i + 1] = temp;
+//
+//					needNextPass = true; // Next pass still needed
+//				}
+//			}
+//		}
+//		
+//		for (int i : numbArray) {
+//			System.out.println(numbArray[i]);
+//		}
+//		
 	}
 
 	// 11. Binary Search.
@@ -154,7 +176,7 @@ public class ArrayExample {
 
 	public static void main(String[] args) {
 		ArrayExample obj = new ArrayExample();
-		obj.tallyList();
+		obj.sort();
 	}
 
 }
