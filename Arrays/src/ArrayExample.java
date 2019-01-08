@@ -93,31 +93,6 @@ public class ArrayExample {
 		count++;
 		System.out.println(num + " " + count);
 
-		// int unique = 0;
-		// for (int i = 0; i < numbArray.length; i++) {
-		// for (int j = i + 1; j < numbArray.length; j++)
-		// if (numbArray[i] != numbArray[j])
-		// unique++;
-		// }
-		// System.out.println(unique);
-		// int[] tally = new int[unique];
-		//
-		// for (int k = 0; k < unique; k++) {
-		// for (int j = 0; j < numbArray.length; j++) {
-		// for (int i = 0; i <= findMax(); i++)
-		// if (numbArray[j] == i)
-		// tally[k] = numbArray[j];
-		// }
-		// }
-		// int count = 0;
-		// for (int k = 0; k < tally.length; k++) {
-		// count = 0;
-		// for (int i = 0; i < numbArray.length; i++) {
-		// if (numbArray[i] == tally[k])
-		// count++;
-		// }
-		// System.out.println(numbArray[k] + " " + count);
-		// }
 	}
 
 	/**
