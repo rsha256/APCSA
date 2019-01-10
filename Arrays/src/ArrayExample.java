@@ -153,23 +153,23 @@ public class ArrayExample {
 	// search.
 	// ex. Using the default array findIndex(15) will return 4
 	public int binarySearch(int lookFor) {
-		return Arrays.binarySearch(numbArray, lookFor);
-		// Arrays.sort(numbArray);
-		// int middle = numbArray.length / 2;
-		// int bottom = numbArray[0];
-		// int top = numbArray[numbArray.length - 1];
-		// while (bottom <= top) {
-		// if (lookFor == numbArray[middle])
-		// return middle - 1;
-		// else {
-		// if (lookFor < middle) {
-		// top = middle - 1;
-		// } else {
-		// bottom = middle + 1;
-		// }
-		// }
-		// }
-		// return -1;
+//		return Arrays.binarySearch(numbArray, lookFor);
+		 Arrays.sort(numbArray);
+		 int bottom = 0;
+		 int top = numbArray.length - 1;
+		 int middle = (top + bottom) / 2;
+		 while (bottom <= top) {
+		 if (lookFor == numbArray[middle])
+		 return middle - 1;
+		 else {
+		 if (lookFor < middle) {
+		 top = middle - 1;
+		 } else {
+		 bottom = middle + 1;
+		 }
+		 }
+		 }
+		 return -1;
 	}
 	// 12. Write a tester that will create a random array of size 50
 	// and test all of these methods
