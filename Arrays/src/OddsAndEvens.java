@@ -44,6 +44,22 @@ public class OddsAndEvens {
 		return even;
 	}
 
+	public double average(int[] numbArray) {
+		double tot = 0;
+		for (int i : numbArray) {
+			tot += i;
+		}
+		return tot / numbArray.length;
+	}
+
+	public int sum(int[] numbArray) {
+		int sum = 0;
+		for (int i : numbArray) {
+			sum += i;
+		}
+		return sum;
+	}
+
 	public void display(int[] odd, int[] even) {
 		System.out.print("Odd = [");
 		String p1 = "";
@@ -65,6 +81,8 @@ public class OddsAndEvens {
 		System.out.println("Number of odd: " + one.howManyOdd());
 		System.out.println("Number of even: " + one.howManyEven());
 		one.display(one.oddArray(), one.evenArray());
+		System.out.println("Even average: " + one.average(one.evenArray()) + "\nEven sum: " + one.sum(one.evenArray())
+				+ "\nOdd Average: " + one.average(one.oddArray()) + "\nOdd Sum: " + one.sum(one.oddArray()));
 
 	}
 }
