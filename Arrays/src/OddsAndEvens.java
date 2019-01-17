@@ -84,5 +84,5 @@ public class OddsAndEvens {
 		System.out.println("Even average: " + one.average(one.evenArray()) + "\nEven sum: " + one.sum(one.evenArray())
 				+ "\nOdd Average: " + one.average(one.oddArray()) + "\nOdd Sum: " + one.sum(one.oddArray()));
 
-	}
+	} 
 }
