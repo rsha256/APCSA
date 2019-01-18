@@ -7,7 +7,7 @@ public class RomanNumeral {
 	private final static String[] LETTERS = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
 
 	public RomanNumeral(String str) {
-//		setRoman(str);
+		// setRoman(str);
 	}
 
 	public RomanNumeral(Integer orig) {
@@ -15,66 +15,75 @@ public class RomanNumeral {
 	}
 
 	public void setNumber(Integer num) {
-		int thousands = num%10000/1000, hundreds = num%1000/100, tens = num%100/10, ones = num%10;
-		
+		int thousands = num % 10000 / 1000, hundreds = num % 1000 / 100, tens = num % 100 / 10, ones = num % 10;
+
 		String temp = "";
-		
-		if(thousands != 0) {
-			for(int i = 0; i < thousands; i++)
+
+		if (thousands != 0) {
+			for (int i = 0; i < thousands; i++)
 				temp += LETTERS[0];
 		}
-		
-		if(hundreds != 0) {
-			if(hundreds == 9) {
+
+		if (hundreds != 0) {
+			if (hundreds == 9) {
 				temp += LETTERS[1];
-				hundreds -= 9;}
-			if(hundreds == 5) {
+				hundreds -= 9;
+			}
+			if (hundreds == 5) {
 				temp += LETTERS[2];
-				hundreds -= 5;}
-			if(hundreds == 4) {
+				hundreds -= 5;
+			}
+			if (hundreds == 4) {
 				temp += LETTERS[3];
-				hundreds -= 4;}
-			for(int i = 0; i < hundreds; i++)
+				hundreds -= 4;
+			}
+			for (int i = 0; i < hundreds; i++)
 				temp += LETTERS[4];
 		}
-		
-		if(tens != 0) {
-			if(tens == 9) {
+
+		if (tens != 0) {
+			if (tens == 9) {
 				temp += LETTERS[5];
-				tens -= 9;}
-			if(tens == 5) {
+				tens -= 9;
+			}
+			if (tens == 5) {
 				temp += LETTERS[6];
-				tens -= 5;}
-			if(tens == 4) {
+				tens -= 5;
+			}
+			if (tens == 4) {
 				temp += LETTERS[7];
-				tens -= 4;}
-			for(int i = 0; i < tens; i++)
+				tens -= 4;
+			}
+			for (int i = 0; i < tens; i++)
 				temp += LETTERS[8];
 		}
-		
-		if(ones != 0) {
-			if(ones == 9) {
+
+		if (ones != 0) {
+			if (ones == 9) {
 				temp += LETTERS[9];
-				ones -= 9;}
-			if(ones == 5) {
+				ones -= 9;
+			}
+			if (ones == 5) {
 				temp += LETTERS[10];
-				ones -= 5;}
-			if(ones == 4) {
+				ones -= 5;
+			}
+			if (ones == 4) {
 				temp += LETTERS[11];
-				ones -= 9;}
-			for(int i = 0; i < ones; i++)
+				ones -= 9;
+			}
+			for (int i = 0; i < ones; i++)
 				temp += LETTERS[12];
 		}
-			
+
 		roman = temp;
 	}
 
-	/*public void setRoman(String rom) {
-		for (int i = LETTERS.length; i >= 0; i--) {
-			for(int j = i; )
-			
-		}
-	}*/
+	/*
+	 * public void setRoman(String rom) { for (int i = LETTERS.length; i >= 0; i--)
+	 * { for(int j = i; )
+	 * 
+	 * } }
+	 */
 
 	public Integer getNumber() {
 		return number;
