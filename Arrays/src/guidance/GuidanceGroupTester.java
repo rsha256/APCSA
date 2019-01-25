@@ -62,7 +62,7 @@ public class GuidanceGroupTester {
 		System.out.println("========");
 		SatStudent[] one = comb.scholarship();
 		for (SatStudent i : one)
-			System.out.println(i);
+			System.out.println(i.getName());
 		System.out.println("AVERAGE SCORE OF SCHOLARS: " + comb.getScholarShipAverage());
 
 	}

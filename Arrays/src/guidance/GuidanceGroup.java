@@ -69,7 +69,7 @@ public class GuidanceGroup {
 		for (SatStudent x : group) {
 			sum += x.getTotalScore();
 		}
-		return (double) sum / group.length;
+		return (int)((double) sum / group.length * 100 ) / 100.0;
 	}
 
 	// This method displays a list of names of students who scored below 1700
@@ -127,41 +127,48 @@ public class GuidanceGroup {
 
 	// Sorts the array of the GuidanceGroup by total score (descending)
 	public void sortByTotalScore() {
-		int n = arr.length;
-		for (int i = 0; i < n-1; i++)
-			for (int j = 0; j < n-i-1; j++)
-				if (arr[j] > arr[j+1])
-				{
-					// swap temp and arr[i]
-					int temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
+		int n = group.length;
+		for (int i = 0; i < n - 1; i++)
+			for (int j = 0; j < n - i - 1; j++)
+				if (group[j].getTotalScore() > group[j + 1].getTotalScore()) {
+					SatStudent temp = group[j];
+					group[j] = group[j + 1];
+					group[j + 1] = temp;
 				}
 	}
 
 	// Sorts the array of the GuidanceGroup by Name (ascending (alphabetically))
 	public void sortByName() {
-		
-	}
-
-	void bubbleSort(int arr[])
-	{
-		int n = arr.length;
-		for (int i = 0; i < n-1; i++)
-			for (int j = 0; j < n-i-1; j++)
-				if (arr[j] > arr[j+1])
-				{
-					// swap temp and arr[i]
-					int temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
+		int n = group.length;
+		for (int i = 0; i < n - 1; i++)
+			for (int j = 0; j < n - i - 1; j++)
+				if (group[j].getName().compareTo(group[j + 1].getName()) > 0) {
+					SatStudent temp = group[j];
+					group[j] = group[j + 1];
+					group[j + 1] = temp;
 				}
 	}
-	
+
+	void bubbleSort(int arr[]) {
+		int n = arr.length;
+		for (int i = 0; i < n - 1; i++)
+			for (int j = 0; j < n - i - 1; j++)
+				if (arr[j] > arr[j + 1]) {
+					// swap temp and arr[i]
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+	}
+
 	// this method will return the average of all of the students in the
 	// Scholarship category
 	public double getScholarShipAverage() {
-		return 999;
+		int sum = 0;
+		for (SatStudent x : scholarship()) {
+			sum += x.getTotalScore();
+		}
+		return (int)((double) sum / scholarship().length * 100) / 100.0;
 	}
 
 	public static void main(String[] args) {
