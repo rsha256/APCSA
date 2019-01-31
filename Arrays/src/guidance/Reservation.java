@@ -1,8 +1,8 @@
 package guidance;
 
 public class Reservation {
-	private String name = null; // last name of the person reserving the room
-	private double rate; // room rate for 1 night's stay
+	private String name = ""; // last name of the person reserving the room
+	private double rate = 0.0; // room rate for 1 night's stay
 
 	public Reservation() {
 		name = "Lepold";
@@ -23,6 +23,6 @@ public class Reservation {
 	}
 
 	public String toString() {
-		return name + ": " + rate; 
+		return name + ": " + rate;
 	}
 }
