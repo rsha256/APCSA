@@ -6,7 +6,8 @@ public class City {
 	int population;
 
 	public City() {
-
+		name = "";
+		population = 0;
 	}
 
 	public City(int p, String n) {
@@ -33,7 +34,7 @@ public class City {
 	public int getPopulation() {
 		return population;
 	}
-	
+
 	@Override
 	public String toString() {
 		return getName() + ": " + getPopulation();
