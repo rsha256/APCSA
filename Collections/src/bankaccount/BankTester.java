@@ -9,7 +9,7 @@ public class BankTester {
 		System.out.println("Total of all Accounts: " + firstBankOfJava.getTotalBalance());
 		double threshold = 15000;
 		int c = firstBankOfJava.count(threshold);
-		System.out.println(c + " accounts with balance &gt;= " + threshold);
+		System.out.println(c + " accounts with balance >= " + threshold);
 		int accountNumber = 1015;
 		BankAccount a = firstBankOfJava.find(accountNumber);
 		if (a == null)
