@@ -11,7 +11,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call to each
 	 * sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 3;
 
 	/**
 	 * Tests shuffling methods.
@@ -54,21 +54,19 @@ public class Shuffler {
 	 *            is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] shuffled = new int[values.length];
-		int k = 0;
-		for (int j = 0; j <= values.length/2 - 1; j++) {
-			shuffled[k] = values[j];
-			k = k + 2;
+		int[] one = new int[values.length / 2];
+		int[] two = new int[values.length - one.length];
+		int pos = 0;
+		while (pos < values.length / 2) {
+			one[pos] = values[pos++];
 		}
-		k=1;
-		for (int i = values.length/2; i <= values.length - 1; i++) {
-			shuffled[k] = values[i];
-			k = k + 2;
+		for (int x = 0; pos < values.length; x++)
+			two[x] = values[pos++];
+		pos = 0;
+		for (int x = 0; x < values.length / 2; x++) {
+			values[pos++] = one[x];
+			values[pos++] = two[x];
 		}
-		
-		System.out.println(Arrays.toString(shuffled));
-		
 	}
 
 	/**
@@ -84,11 +82,37 @@ public class Shuffler {
 	 *            is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		for (int k = values.length - 1; k >= 1; k--) {
-			int r = (int)(Math.random() * (k+1)); 
-			shuffled[r] = values[i];
-						        
+		int[] temp = new int[values.length];
+		for (int x = 0; x < values.length; x++)
+			temp[x] = values[x];
+		String nums = "";
+		for (int x = 0; x < temp.length; x++) {
+			int number = (int) (Math.random() * temp.length);
+			while (nums.contains(number + "")) {
+				number = (int) (Math.random() * temp.length);
+			}
+			values[x] = temp[number];
+			nums += number + "";
 		}
 	}
+
+	public String flip() {
+		int x = (int) (Math.random() * 3);
+		if (x == 1) {
+			return "heads";
+		}
+		return "tails";
+	}
+
+	public boolean arePermutations(int[] one, int[] two) {
+		Arrays.sort(one);
+		Arrays.sort(two);
+		for (int x = 0; x < one.length; x++) {
+			if (one[x] != two[x])
+				return false;
+		}
+		return true;
+	}
 }
+
+// Q3: 3210
