@@ -12,18 +12,44 @@ public class NeighborSum {
 			{ 0, 0, 0, 0, 0 } 
 			};
 
+	
 	private int sum(int row, int col) {
 		int s = 0;
-		s += chart[row][col];
-		if (chart[row - 1][col] >= 0) {
+		try {
+			s += chart[row - 1][col - 1];
+		} catch (Exception e) {
+		}
+		try {
+			s += chart[row - 1][col + 1];
+		} catch (Exception e) {
+		}
+		try {
+			s += chart[row + 1][col - 1];
+		} catch (Exception e) {
+		}
+		try {
 			s += chart[row - 1][col];
+		} catch (Exception e) {
 		}
-		if (chart[row][col - 1] >= 0) {
+		try {
 			s += chart[row][col - 1];
+		} catch (Exception e) {
 		}
+		try {
 			s += chart[row + 1][col];
+		} catch (Exception e) {
+		}
+		try {
+			s += chart[row][col + 1];
+		} catch (Exception e) {
+		}
+		try {
+			s += chart[row + 1][col + 1];
+		} catch (Exception e) {
+		}
+
 		return s;
-		
+
 	}
 
 	public void go() throws Exception {
