@@ -1,29 +1,66 @@
 package elevens;
 
+/**
+ * Card.java
+ *
+ * <code>Card</code> represents a playing card.
+ */
 public class Card {
 
+	/**
+	 * String value that holds the suit of the card
+	 */
 	private String suit;
 
+	/**
+	 * String value that holds the rank of the card
+	 */
 	private String rank;
 
+	/**
+	 * int value that holds the point value.
+	 */
 	private int pointValue;
 
+
+   /**
+	 * Creates a new <code>Card</code> instance.
+	 *
+	 * @param cardRank  a <code>String</code> value
+	 *                  containing the rank of the card
+	 * @param cardSuit  a <code>String</code> value
+	 *                  containing the suit of the card
+	 * @param cardPointValue an <code>int</code> value
+	 *                  containing the point value of the card
+	 */
 	public Card(String cardRank, String cardSuit, int cardPointValue) {
+		//initializes a new Card with the given rank, suit, and point value
 		rank = cardRank;
 		suit = cardSuit;
 		pointValue = cardPointValue;
 	}
 
 
+	/**
+	 * Accesses this <code>Card's</code> suit.
+	 * @return this <code>Card's</code> suit.
+	 */
 	public String suit() {
 		return suit;
-   }
-
-
-	public String rank() {
-	return rank;
 	}
 
+	/**
+	 * Accesses this <code>Card's</code> rank.
+	 * @return this <code>Card's</code> rank.
+	 */
+	public String rank() {
+		return rank;
+	}
+
+   /**
+	 * Accesses this <code>Card's</code> point value.
+	 * @return this <code>Card's</code> point value.
+	 */
 	public int pointValue() {
 		return pointValue;
 	}
@@ -35,11 +72,9 @@ public class Card {
 	 *         false otherwise.
 	 */
 	public boolean matches(Card otherCard) {
-		if(this.rank() == otherCard.rank() &&
-		   this.suit() == otherCard.suit() &&
-		   this.pointValue() == otherCard.pointValue())
-			return true;
-		return false;
+		return otherCard.suit().equals(this.suit())
+			&& otherCard.rank().equals(this.rank())
+			&& otherCard.pointValue() == this.pointValue();
 	}
 
 	/**
@@ -57,14 +92,3 @@ public class Card {
 		return rank + " of " + suit + " (point value = " + pointValue + ")";
 	}
 }
-
-/**
- * Q1: (5s, 6c) or (5c, 6c)
- * Q2: yes, because if two of them sum to 11, you'd be left with one card left.
- * also, since there are an even number of cards and the cards are removed in pairs, 
- * having three cards left that aren't J, Q, and K is impossible.
- * Q3: no, as making one play won't inhibit your ability to make the other immediately after. 
- * also, all the new cards are random, so you'd need to get lucky to get a new combination adding
- * to 11
- */
-
