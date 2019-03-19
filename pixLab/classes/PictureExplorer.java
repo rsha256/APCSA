@@ -1,3 +1,13 @@
+// 1. 8
+// 2. 3
+// 3. 307200
+//
+// 1. 
+// 2. 
+// 3. 
+// 4. 
+// 5. 
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

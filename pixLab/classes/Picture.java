@@ -6,6 +6,8 @@ import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
+import sun.security.x509.X400Address;
+
 /**
  * A class that represents a picture. This class inherits from SimplePicture and
  * allows the student to add functionality to the Picture class.
@@ -204,16 +206,42 @@ public class Picture extends SimplePicture {
 		Pixel[][] p1 = this.getPixels2D();
 		Picture two = new Picture("background.jpg");
 		Pixel[][] p2 = two.getPixels2D();
+		int rBase = 150, gBase = 200, bBase = 130, rMargin = 60, gMargin = 50, bMargin = 65;
 
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
-				if (p1[row][col].getGreen() < 165) {
-					p1[row][col] = p2[row][col];
+				if ((p1[row][col].getGreen() < gBase + gMargin && p1[row][col].getGreen() > gBase - gMargin)
+						&& (p1[row][col].getBlue() < bBase + bMargin && p1[row][col].getBlue() > bBase - bMargin)
+						&& (p1[row][col].getRed() < rBase + rMargin && p1[row][col].getRed() > rBase - rMargin)) {
+					p1[row][col].setColor(p2[row][col].getColor());
 				}
 			}
 		}
-		
-		
+	}
+
+	public void encode(String msg) {
+		Pixel[][] p1 = this.getPixels2D();
+		char[] chars = msg.toCharArray();
+		int[] x = new int[chars.length];
+		for (int i = 0; i < chars.length; i++) {
+			x[i] = (int) chars[i];
+		}
+
+		int c = 0;
+		while (c < x.length) {
+			for (int row = 0; row < p1.length; row++) {
+				for (int col = 0; col < p1[0].length; col++) {
+					if (x[c] > 255) {
+						String xString = "0" + x[c];
+						col--;c--;
+					}
+					else {
+						p1[row][col].setColor(x[c]);
+					}
+					c++;
+				}
+			}
+		}
 
 	}
 
@@ -221,10 +249,11 @@ public class Picture extends SimplePicture {
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-		Picture beach = new Picture("daniel.jpg");
-//		beach.explore();
-		beach.chromakey();
-		beach.explore();
+		// Picture one = new Picture("daniel.jpg");
+		//// one.explore();
+		// one.chromakey();
+		Picture one = new Picture("daniel.jpg");
+
 	}
 
 } // this } is the end of class Picture, put all new methods before this
