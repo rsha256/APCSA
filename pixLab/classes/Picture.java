@@ -210,9 +210,9 @@ public class Picture extends SimplePicture {
 
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
-				if ((p1[row][col].getGreen() < gBase + gMargin && p1[row][col].getGreen() > gBase - gMargin - gMargin/8)
-						&& (p1[row][col].getBlue() < bBase + bMargin && p1[row][col].getBlue() > bBase - bMargin)
-						&& (p1[row][col].getRed() < rBase + rMargin && p1[row][col].getRed() > rBase - rMargin)) {
+				if ((p1[row][col].getGreen() < 250 && p1[row][col].getGreen() > 143)
+						&& (p1[row][col].getBlue() < 195 && p1[row][col].getBlue() > 65)
+						&& (p1[row][col].getRed() < 210 && p1[row][col].getRed() > 90)) {
 					p1[row][col].setColor(p2[row+100][col+100].getColor());
 				}
 			}
