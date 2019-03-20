@@ -203,10 +203,10 @@ public class Picture extends SimplePicture {
 	}
 
 	public void chromakey() {
-		Pixel[][] p1 = this.getPixels2D();
+		Pixel[][] p1 = this.getPixels2D(); // We convert the Picture object of the picture to a 2D pixel array
+		// We make a 
 		Picture two = new Picture("tower.jpg");
 		Pixel[][] p2 = two.getPixels2D();
-		int rBase = 150, gBase = 200, bBase = 130, rMargin = 60, gMargin = 50, bMargin = 65;
 
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
