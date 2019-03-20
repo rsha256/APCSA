@@ -204,16 +204,16 @@ public class Picture extends SimplePicture {
 
 	public void chromakey() {
 		Pixel[][] p1 = this.getPixels2D();
-		Picture two = new Picture("background.jpg");
+		Picture two = new Picture("tower.jpg");
 		Pixel[][] p2 = two.getPixels2D();
 		int rBase = 150, gBase = 200, bBase = 130, rMargin = 60, gMargin = 50, bMargin = 65;
 
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
-				if ((p1[row][col].getGreen() < gBase + gMargin && p1[row][col].getGreen() > gBase - gMargin)
+				if ((p1[row][col].getGreen() < gBase + gMargin && p1[row][col].getGreen() > gBase - gMargin - gMargin/8)
 						&& (p1[row][col].getBlue() < bBase + bMargin && p1[row][col].getBlue() > bBase - bMargin)
 						&& (p1[row][col].getRed() < rBase + rMargin && p1[row][col].getRed() > rBase - rMargin)) {
-					p1[row][col].setColor(p2[row][col].getColor());
+					p1[row][col].setColor(p2[row+100][col+100].getColor());
 				}
 			}
 		}
@@ -233,27 +233,24 @@ public class Picture extends SimplePicture {
 				for (int col = 0; col < p1[0].length; col++) {
 					if (x[c] > 255) {
 						String xString = "0" + x[c];
-						col--;c--;
-					}
-					else {
-						p1[row][col].setColor(x[c]);
+						col--;
+						c--;
+					} else {
+						p1[row][col].setRed(x[c]);
 					}
 					c++;
 				}
 			}
 		}
-
 	}
 
 	/*
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-		// Picture one = new Picture("daniel.jpg");
-		//// one.explore();
-		// one.chromakey();
 		Picture one = new Picture("daniel.jpg");
-
+		one.chromakey();
+		one.explore();
 	}
 
 } // this } is the end of class Picture, put all new methods before this
