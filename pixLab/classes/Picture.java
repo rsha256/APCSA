@@ -204,7 +204,8 @@ public class Picture extends SimplePicture {
 
 	public void chromakey() {
 		Pixel[][] p1 = this.getPixels2D(); // We convert the Picture object of the picture to a 2D pixel array
-		// We make a 
+		// We then make a new Picture object so we can work with the background as a 2D
+		// pixel array
 		Picture two = new Picture("tower.jpg");
 		Pixel[][] p2 = two.getPixels2D();
 
@@ -213,33 +214,102 @@ public class Picture extends SimplePicture {
 				if ((p1[row][col].getGreen() < 250 && p1[row][col].getGreen() > 143)
 						&& (p1[row][col].getBlue() < 195 && p1[row][col].getBlue() > 65)
 						&& (p1[row][col].getRed() < 210 && p1[row][col].getRed() > 90)) {
-					p1[row][col].setColor(p2[row+100][col+100].getColor());
+					p1[row][col].setColor(p2[row + 100][col + 100].getColor());
 				}
 			}
 		}
 	}
 
-	public void encode(String msg) {
+	public void encode(Picture toBeEncoded) {
 		Pixel[][] p1 = this.getPixels2D();
-		char[] chars = msg.toCharArray();
-		int[] x = new int[chars.length];
-		for (int i = 0; i < chars.length; i++) {
-			x[i] = (int) chars[i];
+		Pixel[][] p2 = toBeEncoded.getPixels2D();
+
+		// Below we make every Red pixel even
+		for (int row = 0; row < p1.length; row++) {
+			for (int col = 0; col < p1[0].length; col++) {
+				// If a Red pixel has an odd int value then we make it even
+				if (p1[row][col].getGreen() % 2 == 1) {
+					// If it currently has a value of 255, we can't just add one as that may lead to
+					// us trying to set a value of 256 which is outside the range of valid RGB
+					// values
+					if (p1[row][col].getGreen() == 255) {
+						p1[row][col].setGreen(254);
+					} else {
+						// Otherwise, if it can be incremented to a valid value, we do so
+						p1[row][col].setGreen(p1[row][col].getGreen() + 1);
+					}
+				}
+			}
 		}
 
-		int c = 0;
-		while (c < x.length) {
-			for (int row = 0; row < p1.length; row++) {
-				for (int col = 0; col < p1[0].length; col++) {
-					if (x[c] > 255) {
-						String xString = "0" + x[c];
-						col--;
-						c--;
-					} else {
-						p1[row][col].setRed(x[c]);
-					}
-					c++;
+		for (int row = 0; row < p1.length; row++) {
+			for (int col = 0; col < p1[0].length; col++) {
+				if (p2[row][col].getGreen() < 255) {
+					p1[row][col].setGreen(p1[row][col].getGreen() + 1);
 				}
+			}
+		}
+
+	}
+
+	public void decode() {
+		Pixel[][] p1 = this.getPixels2D();
+
+		// Below we make every Red pixel even
+		for (int row = 0; row < p1.length; row++) {
+			for (int col = 0; col < p1[0].length; col++) {
+				if (p1[row][col].getGreen() % 2 == 0) {
+					p1[row][col].setColor(new Color(255, 255, 255));
+				} else {
+					p1[row][col].setColor(new Color(0, 0, 0));
+				}
+			}
+		}
+
+		this.explore();
+
+	}
+
+	public void blur() {
+		Pixel[][] p1 = this.getPixels2D(); // We convert the Picture object of the picture to a 2D pixel array
+		// We then make a new Picture object so we can work with the background as a 2D
+		// pixel array
+		Picture two = new Picture("tower.jpg");
+		Pixel[][] p2 = two.getPixels2D();
+
+		for (int row = 1; row < p1.length-1; row++) {
+			for (int col = 1; col < p1[0].length-1; col++) {
+				double r = p1[row + 1][col].getRed()
+						+ p1[row + 1][col + 1].getRed()
+						+ p1[row + 1][col - 1].getRed()
+						+ p1[row - 1][col + 1].getRed()
+						+ p1[row - 1][col - 1].getRed()
+						+ p1[row - 1][col].getRed()
+						+ p1[row][col].getRed()
+						+ p1[row][col - 1].getRed()
+						+ p1[row][col + 1].getRed();
+				double b = p1[row + 1][col].getBlue()
+						+ p1[row + 1][col + 1].getBlue()
+						+ p1[row + 1][col - 1].getBlue()
+						+ p1[row - 1][col + 1].getBlue()
+						+ p1[row - 1][col - 1].getBlue()
+						+ p1[row - 1][col].getBlue()
+						+ p1[row][col].getBlue()
+						+ p1[row][col - 1].getBlue()
+						+ p1[row][col + 1].getBlue();
+				double g = p1[row + 1][col].getGreen()
+						+ p1[row + 1][col + 1].getGreen()
+						+ p1[row + 1][col - 1].getGreen()
+						+ p1[row - 1][col + 1].getGreen()
+						+ p1[row - 1][col - 1].getGreen()
+						+ p1[row - 1][col].getGreen()
+						+ p1[row][col].getGreen()
+						+ p1[row][col - 1].getGreen()
+						+ p1[row][col + 1].getGreen();
+				r /= 9.0;
+				b /= 9.0;
+				g /= 9.0;
+				p1[row][col].setColor(new Color((int) r, (int) g, (int) b));
 			}
 		}
 	}
@@ -248,8 +318,14 @@ public class Picture extends SimplePicture {
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-		Picture one = new Picture("daniel.jpg");
-		one.chromakey();
+		Picture one = new Picture("whiteFlower.jpg");
+		//one.explore();
+		//one.encode(new Picture("hello.png"));
+		//one.explore();
+		//one.decode();
+		one.blur();
+		one.blur();
+		one.blur();
 		one.explore();
 	}
 
