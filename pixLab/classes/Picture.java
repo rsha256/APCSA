@@ -204,20 +204,21 @@ public class Picture extends SimplePicture {
 
 	public void chromakey() {
 		Pixel[][] p1 = this.getPixels2D(); // We convert the Picture object of the picture to a 2D pixel array
-		// We then make a new Picture object so we can work with the background as a 2D
-		// pixel array
-		Picture two = new Picture("tower.jpg");
+		
+		// We then make a new Picture object so we can work with the background as a 2D pixel array as well
+		Picture two = new Picture("eiffelTower.jpg");
 		Pixel[][] p2 = two.getPixels2D();
 
-		// Loop through every pixel in the picture
+		// Loop through every pixel in the picture (2D array so we used nested for loops)
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
 				// Check if the current pixel is in the color ranges for red, green, & blue
+				// Pixels that are in the color range are the green screen pixels that will be replaced by the background image
 				if ((p1[row][col].getGreen() < 250 && p1[row][col].getGreen() > 143)
 						&& (p1[row][col].getBlue() < 195 && p1[row][col].getBlue() > 65)
 						&& (p1[row][col].getRed() < 210 && p1[row][col].getRed() > 90)) {
 					// Replace the pixel if it is in all three color ranges
-					p1[row][col].setColor(p2[row + 100][col + 100].getColor());
+					p1[row][col].setColor(p2[row][col].getColor());
 				}
 			}
 		}
@@ -331,45 +332,48 @@ public class Picture extends SimplePicture {
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-//		Picture one = new Picture("daniel.jpg");
 //		
 //		// chomakey
+//		Picture one = new Picture("daniel.jpg");
 //		one.explore();
+//		temp.explore();
 //		one.chromakey();
 //		one.explore();
-		
+//
 //		// steganography
 //
+//		Picture temp = new Picture("message.png");
+//		temp.explore();
 //		Picture two = new Picture("whiteFlower.jpg");
 //		two.explore();
 //		two.encode(new Picture("message.png"));
 //		two.explore();
 //		two.decode();
 //		two.explore();
-
-//		// custom
-//		Picture three = new Picture("blueMotorcycle");
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
-//		three.blur();
-//		three.explore();
+//
+		// custom
+		Picture three = new Picture("blueMotorcycle.jpg");
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
 	}
 
 } // this } is the end of class Picture, put all new methods before this
