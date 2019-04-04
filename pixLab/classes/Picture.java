@@ -204,17 +204,21 @@ public class Picture extends SimplePicture {
 
 	public void chromakey() {
 		Pixel[][] p1 = this.getPixels2D(); // We convert the Picture object of the picture to a 2D pixel array
-		// We then make a new Picture object so we can work with the background as a 2D
-		// pixel array
-		Picture two = new Picture("tower.jpg");
+		
+		// We then make a new Picture object so we can work with the background as a 2D pixel array as well
+		Picture two = new Picture("eiffelTower.jpg");
 		Pixel[][] p2 = two.getPixels2D();
 
+		// Loop through every pixel in the picture (2D array so we used nested for loops)
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
+				// Check if the current pixel is in the color ranges for red, green, & blue
+				// Pixels that are in the color range are the green screen pixels that will be replaced by the background image
 				if ((p1[row][col].getGreen() < 250 && p1[row][col].getGreen() > 143)
 						&& (p1[row][col].getBlue() < 195 && p1[row][col].getBlue() > 65)
 						&& (p1[row][col].getRed() < 210 && p1[row][col].getRed() > 90)) {
-					p1[row][col].setColor(p2[row + 100][col + 100].getColor());
+					// Replace the pixel if it is in all three color ranges
+					p1[row][col].setColor(p2[row][col].getColor());
 				}
 			}
 		}
@@ -224,15 +228,16 @@ public class Picture extends SimplePicture {
 		Pixel[][] p1 = this.getPixels2D();
 		Pixel[][] p2 = toBeEncoded.getPixels2D();
 
-		// Below we make every Red pixel even
+		// Below we make every Green pixel even
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
-				// If a Red pixel has an odd int value then we make it even
+				// If a Green pixel has an odd int value then we make it even
 				if (p1[row][col].getGreen() % 2 == 1) {
 					// If it currently has a value of 255, we can't just add one as that may lead to
-					// us trying to set a value of 256 which is outside the range of valid RGB
-					// values
+					// us trying to set a value of 256 (which is outside the range of valid RGB
+					// values)
 					if (p1[row][col].getGreen() == 255) {
+						// Decrement as a special case (instead of incrementing)
 						p1[row][col].setGreen(254);
 					} else {
 						// Otherwise, if it can be incremented to a valid value, we do so
@@ -242,9 +247,12 @@ public class Picture extends SimplePicture {
 			}
 		}
 
+		// Loop through each pixel in the picture
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
+				// Check if the green value can be incremented
 				if (p2[row][col].getGreen() < 255) {
+					// Increment the pixel's green value
 					p1[row][col].setGreen(p1[row][col].getGreen() + 1);
 				}
 			}
@@ -254,19 +262,20 @@ public class Picture extends SimplePicture {
 
 	public void decode() {
 		Pixel[][] p1 = this.getPixels2D();
-
-		// Below we make every Red pixel even
+		
+		// Loop through every pixel in the picture modeled as a 2D Pixel Array
 		for (int row = 0; row < p1.length; row++) {
 			for (int col = 0; col < p1[0].length; col++) {
+				// Check if the green value is even
 				if (p1[row][col].getGreen() % 2 == 0) {
+					// If the green value is even, it was encoded as white
 					p1[row][col].setColor(new Color(255, 255, 255));
 				} else {
+					// If the green value is odd, it was encoded as black
 					p1[row][col].setColor(new Color(0, 0, 0));
 				}
 			}
 		}
-
-		this.explore();
 
 	}
 
@@ -274,11 +283,12 @@ public class Picture extends SimplePicture {
 		Pixel[][] p1 = this.getPixels2D(); // We convert the Picture object of the picture to a 2D pixel array
 		// We then make a new Picture object so we can work with the background as a 2D
 		// pixel array
-		Picture two = new Picture("tower.jpg");
-		Pixel[][] p2 = two.getPixels2D();
-
+		Pixel[][] p2 = p1.clone();
+		
+		// Loop through every pixel that is not on the edge of the picture
 		for (int row = 1; row < p1.length-1; row++) {
 			for (int col = 1; col < p1[0].length-1; col++) {
+				// Average the red values of the neighboring pixels
 				double r = p1[row + 1][col].getRed()
 						+ p1[row + 1][col + 1].getRed()
 						+ p1[row + 1][col - 1].getRed()
@@ -288,6 +298,8 @@ public class Picture extends SimplePicture {
 						+ p1[row][col].getRed()
 						+ p1[row][col - 1].getRed()
 						+ p1[row][col + 1].getRed();
+				r /= 9.0;
+				// Average the blue values of the neighboring pixels
 				double b = p1[row + 1][col].getBlue()
 						+ p1[row + 1][col + 1].getBlue()
 						+ p1[row + 1][col - 1].getBlue()
@@ -297,6 +309,8 @@ public class Picture extends SimplePicture {
 						+ p1[row][col].getBlue()
 						+ p1[row][col - 1].getBlue()
 						+ p1[row][col + 1].getBlue();
+				b /= 9.0;
+				// Average the green values of the neighboring pixels
 				double g = p1[row + 1][col].getGreen()
 						+ p1[row + 1][col + 1].getGreen()
 						+ p1[row + 1][col - 1].getGreen()
@@ -306,10 +320,10 @@ public class Picture extends SimplePicture {
 						+ p1[row][col].getGreen()
 						+ p1[row][col - 1].getGreen()
 						+ p1[row][col + 1].getGreen();
-				r /= 9.0;
-				b /= 9.0;
 				g /= 9.0;
-				p1[row][col].setColor(new Color((int) r, (int) g, (int) b));
+				
+				// Set the pixel to the average of the surrounding pixels
+				p2[row][col].setColor(new Color((int) r, (int) g, (int) b));
 			}
 		}
 	}
@@ -318,15 +332,48 @@ public class Picture extends SimplePicture {
 	 * Main method for testing - each class in Java can have a main method
 	 */
 	public static void main(String[] args) {
-		Picture one = new Picture("whiteFlower.jpg");
-		//one.explore();
-		//one.encode(new Picture("hello.png"));
-		//one.explore();
-		//one.decode();
-		one.blur();
-		one.blur();
-		one.blur();
-		one.explore();
+//		
+//		// chomakey
+//		Picture one = new Picture("daniel.jpg");
+//		one.explore();
+//		temp.explore();
+//		one.chromakey();
+//		one.explore();
+//
+//		// steganography
+//
+//		Picture temp = new Picture("message.png");
+//		temp.explore();
+//		Picture two = new Picture("whiteFlower.jpg");
+//		two.explore();
+//		two.encode(new Picture("message.png"));
+//		two.explore();
+//		two.decode();
+//		two.explore();
+//
+		// custom
+		Picture three = new Picture("blueMotorcycle.jpg");
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
+		three.blur();
+		three.explore();
 	}
 
 } // this } is the end of class Picture, put all new methods before this
