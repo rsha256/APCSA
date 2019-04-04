@@ -34,4 +34,8 @@ public class Student extends Person {
 		IDNum = iDNum;
 	}
 	
+	public String distinction() {
+		return "Rahu is da best";
+	}
+	
 }
