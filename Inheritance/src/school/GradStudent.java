@@ -1,3 +1,5 @@
+package school;
+
 public class GradStudent extends CollegeStudent {
 
 	public GradStudent(String name, int age, String gender, double gpa, String IDNum, String major, int year) {

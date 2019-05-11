@@ -1,3 +1,5 @@
+package school;
+
 public class CollegeStudent extends Student {
 
 	private String major;

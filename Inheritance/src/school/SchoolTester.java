@@ -1,3 +1,5 @@
+package school;
+
 public class SchoolTester {
 	public static void main(String[] args) {
 		Person bob = new Person("Coach Bob", 48, "M");

@@ -1,3 +1,5 @@
+package athlete;
+
 public class AthleteTester {
 	public static void main(String[] args) {
 		System.out.println("Name \t\t" + "Sport \t\t" + "Training Hours");

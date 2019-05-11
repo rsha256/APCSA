@@ -1,3 +1,5 @@
+package athlete;
+
 /**
  * Defines an athlete.
  */

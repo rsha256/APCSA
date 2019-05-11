@@ -1,3 +1,5 @@
+package orchard;
+
 public class Orchard {
 	private int[] apples, pears, peaches;
 

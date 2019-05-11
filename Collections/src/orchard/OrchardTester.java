@@ -1,3 +1,5 @@
+package orchard;
+
 public class OrchardTester {
 	static int[] apples0 = { 128, 358, 984, 1522 };
 	static int[] pears0 = { 340, 587, 465, 105 };

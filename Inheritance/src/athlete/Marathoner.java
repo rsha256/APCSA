@@ -1,3 +1,5 @@
+package athlete;
+
 public class Marathoner extends Runner {
 	
 	private String firstName;

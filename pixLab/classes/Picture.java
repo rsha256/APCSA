@@ -6,8 +6,6 @@ import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
-import sun.security.x509.X400Address;
-
 /**
  * A class that represents a picture. This class inherits from SimplePicture and
  * allows the student to add functionality to the Picture class.
@@ -326,6 +324,10 @@ public class Picture extends SimplePicture {
 				p2[row][col].setColor(new Color((int) r, (int) g, (int) b));
 			}
 		}
+	}
+
+	public void unblur() {
+
 	}
 
 	/*

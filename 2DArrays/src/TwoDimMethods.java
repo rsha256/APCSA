@@ -82,7 +82,7 @@ public class TwoDimMethods {
 	public static void main(String[] args) {
 		TwoDimMethods one = new TwoDimMethods();
 		TwoDimMethods two = new TwoDimMethods(3, 6);
-		one.display2();
+		one.displaySideways();
 		System.out.println("minimum: " + one.minimum());
 		System.out.println("avg. value: " + one.average());
 	}
