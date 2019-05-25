@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18b59aee-9e47-4dc8-892e-b3997d093d22" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/APExam/src/MyAbstractClass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DArrays/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/2DArrays/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2DArrays/src/TwoDimMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/2DArrays/src/TwoDimMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Collections/src/Orchard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Collections/src/orchard/Orchard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Collections/src/OrchardTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Collections/src/orchard/OrchardTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/Athlete.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/athlete/Athlete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/AthleteTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/athlete/AthleteTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/CollegeStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/school/CollegeStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/GradStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/school/GradStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/Marathoner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/athlete/Marathoner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/school/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/athlete/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/SchoolTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/school/SchoolTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/school/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inheritance/src/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Inheritance/src/school/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shapes/src/Boxes.java" beforeDir="false" afterPath="$PROJECT_DIR$/Shapes/src/Boxes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pixLab/classes/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/pixLab/classes/Picture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APExam/src/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/APExam/src/Tester.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +17,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/APExam/src/Tester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -91,12 +87,15 @@
         <option value="$PROJECT_DIR$/Collections/src/orchard/Orchard.java" />
         <option value="$PROJECT_DIR$/Collections/src/orchard/OrchardTester.java" />
         <option value="$PROJECT_DIR$/APExam/src/2017/Digits.java" />
+        <option value="$PROJECT_DIR$/APExam/src/Tester.java" />
+        <option value="$PROJECT_DIR$/Inheritance/src/AbstractClass.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -106,6 +105,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -116,20 +117,18 @@
             <path>
               <item name="APCSA" type="b2602c69:ProjectViewProjectNode" />
               <item name="APCSA" type="462c0819:PsiDirectoryNode" />
-              <item name="Arrays" type="462c0819:PsiDirectoryNode" />
+              <item name="Inheritance" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="APCSA" type="b2602c69:ProjectViewProjectNode" />
               <item name="APCSA" type="462c0819:PsiDirectoryNode" />
-              <item name="Arrays" type="462c0819:PsiDirectoryNode" />
+              <item name="Inheritance" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,16 +238,18 @@
       <workItem from="1555561657346" duration="349000" />
       <workItem from="1557021153535" duration="22000" />
       <workItem from="1557021220839" duration="1214000" />
+      <workItem from="1558043940982" duration="3722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26238000" />
+    <option name="totallyTimeSpent" value="29960000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" x="238" y="85" width="484" height="634" id="Project" order="0" visible="true" weight="0.35622317" />
+      <window_info active="true" content_ui="combo" x="238" y="85" width="484" height="634" id="Project" order="0" visible="true" weight="0.36123034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -265,7 +266,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.29376498" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.29256594" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -286,14 +287,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MathFunctions/src/TriangleTester.java" />
-    <entry file="file://$PROJECT_DIR$/MathFunctions/src/ShahKondapalliTriangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="199" column="7" selection-start-line="199" selection-start-column="7" selection-end-line="199" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MathFunctions/src/Strings.java" />
     <entry file="file://$PROJECT_DIR$/Magpie/src/MagpieRunner2.java">
       <provider selected="true" editor-type-id="text-editor" />
@@ -564,13 +557,7 @@
     <entry file="file://$PROJECT_DIR$/APExam/src/inheritance/Dancer.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/APExam/src/2017/Digits.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/APExam/src/2017/Digits.java" />
     <entry file="file://$PROJECT_DIR$/Arrays/src/Almanac.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -583,6 +570,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Arrays/src/ArrayStatsRunner.java">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inheritance/src/AbstractClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/APExam/src/Tester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
